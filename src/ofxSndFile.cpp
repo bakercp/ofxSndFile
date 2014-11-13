@@ -102,6 +102,14 @@ void ofxSndFile::resizeFrame(size_t size)
 	buffer.resize(size * channels);
 }
 
+void ofxSndFile::limitDuration(float max_duration){
+    float duration = getDuration();
+    if (duration > max_duration){
+        resizeFrame(max_duration * getSamplerate());
+    }
+}
+
+
 void ofxSndFile::normalize()
 {
 	float max_sample = 0;
