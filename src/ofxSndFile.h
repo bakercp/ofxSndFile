@@ -29,6 +29,7 @@ public:
 	int getNumFrame() { return buffer.size() / channels; }
 	float getDuration();
 	
+    void limitDuration(float max_duration);
 	void resizeFrame(size_t size);
 	
 	vector<float>& getBuffer() { return buffer; }
